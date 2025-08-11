@@ -16,3 +16,8 @@ for impath in myList:
     overlayList.append(image)  # Add to the overlay list
 
 print("The length of images are:",len(overlayList)) # Print how many images were loaded
+header = overlayList[0]
+
+cap = cv2.VideoCapture(0)
+cap.set(3, 1280)
+cap.set(4, 720)
