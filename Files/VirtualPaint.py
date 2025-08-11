@@ -5,5 +5,12 @@ import time
 import os
 import HandTrackingModule as htm
 
+# Load images from folder
+folderPath = "PaintImage"
+myList = os.listdir(folderPath) # List all image filenames in the folder
+print(myList)
 
+overlayList = []  # List to store loaded images
+for impath in myList:
+    image = cv2.imread(f'{folderPath}/{impath}') # Read each image
 
