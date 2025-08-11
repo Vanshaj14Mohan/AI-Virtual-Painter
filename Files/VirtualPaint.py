@@ -13,4 +13,6 @@ print(myList)
 overlayList = []  # List to store loaded images
 for impath in myList:
     image = cv2.imread(f'{folderPath}/{impath}') # Read each image
+    overlayList.append(image)  # Add to the overlay list
 
+print("The length of images are:",len(overlayList)) # Print how many images were loaded
