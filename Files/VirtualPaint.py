@@ -30,3 +30,5 @@ while True:
     # Break loop if 'q' key is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+    
