@@ -36,6 +36,10 @@ while True:
 
     if len(lmList) != 0:
         print(lmList)
+        
+        #Tip of index and middle fingers
+        x1,y1 = lmList[8][1:]
+        x2,y2 = lmList[12][1:]
 
     # 3: Checking which fingers are up
 
