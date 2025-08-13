@@ -22,12 +22,26 @@ cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
 cap.set(4, 720)
 
+detector = htm.HandDetector(detectionCon=0.85)
+
 #Main Loop
 while True:
     # 1: Import image
     success, img = cap.read() # Read frame from webcam
+    img = cv2.flip(img,1)
 
     # 2: Finding Hand Landmarks
+    img = detector.findHands(img)
+    lmList = detector.findPosition(img, draw=False)
+
+    if len(lmList) != 0:
+        print(lmList)
+
+    # 3: Checking which fingers are up
+
+    # 4: Selection mode - If two fingers are up
+
+    # 5: Drawing mode - Index finger is up
 
     img[0:125, 0:1280] = header #Setting the header image
     cv2.imshow("Image", img)
