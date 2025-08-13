@@ -24,9 +24,12 @@ cap.set(4, 720)
 
 #Main Loop
 while True:
+    # 1: Import image
     success, img = cap.read() # Read frame from webcam
 
-    img[0:125, 0:1280] = header
+    # 2: Finding Hand Landmarks
+
+    img[0:125, 0:1280] = header #Setting the header image
     cv2.imshow("Image", img)
     cv2.waitKey(1)
 
