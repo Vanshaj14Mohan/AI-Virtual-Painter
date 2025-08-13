@@ -1,4 +1,4 @@
-#Using necessary Libraries
+# Using necessary Libraries
 import cv2
 import numpy as np
 import time
@@ -25,8 +25,13 @@ cap.set(4, 720)
 #Main Loop
 while True:
     success, img = cap.read() # Read frame from webcam
+
+    img[0:125, 0:1280] = header
     cv2.imshow("Image", img)
     cv2.waitKey(1)
+
+
+
 
     # Break loop if 'q' key is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
