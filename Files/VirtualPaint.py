@@ -40,7 +40,6 @@ while True:
         x2,y2 = lmList[12][1:] #For middle finger
         
         # 3: Checking which fingers are up
-
         fingers = detector.fingersUp()
         print(fingers)
 
