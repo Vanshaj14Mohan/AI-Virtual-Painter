@@ -34,12 +34,15 @@ while True:
     img = detector.findHands(img)
     lmList = detector.findPosition(img, draw=False)
     if len(lmList) != 0:
-        print(lmList)        
+        # print(lmList)  
         #Tip of index and middle fingers
         x1,y1 = lmList[8][1:] #For index finger
         x2,y2 = lmList[12][1:] #For middle finger
+        
+        # 3: Checking which fingers are up
 
-    # 3: Checking which fingers are up
+        fingers = detector.fingersUp()
+        print(fingers)
 
     # 4: Selection mode - If two fingers are up
 
@@ -48,9 +51,6 @@ while True:
     img[0:125, 0:1280] = header #Setting the header image
     cv2.imshow("Image", img)
     cv2.waitKey(1)
-
-
-
 
     # Break loop if 'q' key is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
