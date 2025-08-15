@@ -41,11 +41,15 @@ while True:
         
         # 3: Checking which fingers are up
         fingers = detector.fingersUp()
-        print(fingers)
+        #print(fingers)
 
-    # 4: Selection mode - If two fingers are up
-
-    # 5: Drawing mode - Index finger is up
+        # 4: Selection mode - If two fingers are up
+        if fingers[1] and fingers[2]:
+            print("Selection Mode")
+    
+        # 5: Drawing mode - Index finger is up
+        if fingers[1] and fingers[2] == False:
+            print("Drawing Mode")
 
     img[0:125, 0:1280] = header #Setting the header image
     cv2.imshow("Image", img)
