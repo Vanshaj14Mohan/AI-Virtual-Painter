@@ -45,10 +45,12 @@ while True:
 
         # 4: Selection mode - If two fingers are up
         if fingers[1] and fingers[2]:
+            cv2.rectangle(img, (x1, y1-20), (x2, y2+20), (255, 0, 0), cv2.FILLED)
             print("Selection Mode")
     
         # 5: Drawing mode - Index finger is up
         if fingers[1] and fingers[2] == False:
+            cv2.circle(img, (x1, y1), 15, (0, 0, 255), cv2.FILLED)
             print("Drawing Mode")
 
     img[0:125, 0:1280] = header #Setting the header image
