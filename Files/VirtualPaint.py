@@ -51,16 +51,16 @@ while True:
             if y1 < 125:
                 if 250< x1<450:
                     header = overlayList[0]
-                    drawColor = (255, 0, 255) # For Purple
+                    drawColor = (255, 0, 255) # For Purple color
                 elif 550< x1<750:
                     header = overlayList[1]
-                    drawColor = (0, 165, 255) # For Orange
+                    drawColor = (0, 165, 255) # For Orange color
                 elif 800< x1<950:
                     header = overlayList[2]
-                    drawColor = (0, 255, 0 ) # For Green
+                    drawColor = (0, 255, 0 ) # For Green color
                 elif 1050< x1<1200:
                     header = overlayList[3]
-                    drawColor = (0, 0, 0 ) # For BLack
+                    drawColor = (0, 0, 0 ) # For Black color
             cv2.rectangle(img, (x1, y1-25), (x2, y2+25), drawColor, cv2.FILLED)
     
         # 5: Drawing mode - Index finger is up
