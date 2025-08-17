@@ -17,13 +17,14 @@ for impath in myList:
 
 print("The length of images are:",len(overlayList)) # Print how many images were loaded
 header = overlayList[0]
+drawColor = (255, 0, 255)
 
 cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
 cap.set(4, 720)
 detector = htm.HandDetector(detectionCon=0.85)
 
-#Main Loop
+# Main Loop
 while True:
     # 1: Import image
     success, img = cap.read() # Read frame from webcam
@@ -44,15 +45,32 @@ while True:
 
         # 4: Selection mode - If two fingers are up
         if fingers[1] and fingers[2]:
-            cv2.rectangle(img, (x1, y1-25), (x2, y2+25), (255, 0,255), cv2.FILLED)
+            # cv2.rectangle(img, (x1, y1-25), (x2, y2+25), drawColor, cv2.FILLED)
             print("Selection Mode")
+            #Checking the click condition now
+            if y1 < 125:
+                if 250< x1<450:
+                    header = overlayList[0]
+                    drawColor = (255, 0, 255)
+                elif 550< x1<750:
+                    header = overlayList[1]
+                    drawColor = (0, 165, 255)
+                elif 800< x1<950:
+                    header = overlayList[2]
+                    drawColor = (0, 255, 0 )
+                elif 1050< x1<1200:
+                    header = overlayList[3]
+                    drawColor = (0, 0, 0 )
+            cv2.rectangle(img, (x1, y1-25), (x2, y2+25), drawColor, cv2.FILLED)
+
     
         # 5: Drawing mode - Index finger is up
         if fingers[1] and fingers[2] == False:
-            cv2.circle(img, (x1, y1), 15, (255,0,255), cv2.FILLED)
+            cv2.circle(img, (x1, y1), 15, drawColor, cv2.FILLED)
             print("Drawing Mode")
 
-    img[0:125, 0:1280] = header #Setting the header image
+    # Setting the header image
+    img[0:125, 0:1280] = header 
     cv2.imshow("Image", img)
     cv2.waitKey(1)
 
