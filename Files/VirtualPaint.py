@@ -62,7 +62,6 @@ while True:
                     header = overlayList[3]
                     drawColor = (0, 0, 0 )
             cv2.rectangle(img, (x1, y1-25), (x2, y2+25), drawColor, cv2.FILLED)
-
     
         # 5: Drawing mode - Index finger is up
         if fingers[1] and fingers[2] == False:
