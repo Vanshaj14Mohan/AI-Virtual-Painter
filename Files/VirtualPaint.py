@@ -5,6 +5,10 @@ import time
 import os
 import HandTrackingModule as htm
 
+##########
+brushThickness = 15
+##########
+
 # Load images from folder
 folderPath = "PaintImage"
 myList = os.listdir(folderPath) # List all image filenames in the folder
@@ -23,6 +27,7 @@ cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
 cap.set(4, 720)
 detector = htm.HandDetector(detectionCon=0.85)
+xp, yp = 0, 0
 
 # Main Loop
 while True:
@@ -67,6 +72,12 @@ while True:
         if fingers[1] and fingers[2] == False:
             cv2.circle(img, (x1, y1), 15, drawColor, cv2.FILLED)
             print("Drawing Mode")
+            if xp == 0 and yp == 0:
+                xp, yp = x1, y1
+
+            cv2.line(img, (xp, yp), (x1, y1), drawColor, brushThickness)
+
+            xp, yp = x1, y1
 
     # Setting the header image
     img[0:125, 0:1280] = header 
