@@ -73,7 +73,7 @@ while True:
         if fingers[1] and fingers[2] == False:
             cv2.circle(img, (x1, y1), 15, drawColor, cv2.FILLED)
             print("Drawing Mode")
-            if xp == 0 and yp == 0:
+            if xp == 0 and yp == 0: #Condition
                 xp, yp = x1, y1
 
             cv2.line(img, (xp, yp), (x1, y1), drawColor, brushThickness)
