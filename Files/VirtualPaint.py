@@ -28,6 +28,7 @@ cap.set(3, 1280)
 cap.set(4, 720)
 detector = htm.HandDetector(detectionCon=0.85)
 xp, yp = 0, 0
+imgCanvas = np.zeros((720, 1280, 3), np.uint8)
 
 # Main Loop
 while True:
@@ -76,12 +77,14 @@ while True:
                 xp, yp = x1, y1
 
             cv2.line(img, (xp, yp), (x1, y1), drawColor, brushThickness)
+            cv2.line(imgCanvas, (xp, yp), (x1, y1), drawColor, brushThickness)
 
             xp, yp = x1, y1
 
     # Setting the header image
     img[0:125, 0:1280] = header 
     cv2.imshow("Image", img)
+    cv2.imshow("Canvas", imgCanvas)
     cv2.waitKey(1)
 
     # Break loop if 'q' key is pressed
