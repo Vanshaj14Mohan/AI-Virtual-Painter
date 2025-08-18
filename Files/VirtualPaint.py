@@ -78,7 +78,6 @@ while True:
 
             cv2.line(img, (xp, yp), (x1, y1), drawColor, brushThickness)
             cv2.line(imgCanvas, (xp, yp), (x1, y1), drawColor, brushThickness)
-
             xp, yp = x1, y1
 
     # Setting the header image
