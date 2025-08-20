@@ -53,6 +53,7 @@ while True:
         # 4: Selection mode - If two fingers are up
         if fingers[1] and fingers[2]:
             # cv2.rectangle(img, (x1, y1-25), (x2, y2+25), drawColor, cv2.FILLED)
+            xp, yp = 0, 0
             print("Selection Mode")
             #Checking the click condition now
             if y1 < 125:
@@ -90,12 +91,16 @@ while True:
 
     imgGray = cv2.cvtColor(imgCanvas, cv2.COLOR_BGR2GRAY)
     _, imgInv = cv2.threshold(imgGray, 50, 255, cv2.THRESH_BINARY_INV)
+    imgInv = cv2.cvtColor(imgInv, cv2.COLOR_GRAY2BGR)
+    img = cv2.bitwise_and(img, imgInv)
+    img = cv2.bitwise_or(img, imgCanvas)
 
     # Setting the header image
     img[0:125, 0:1280] = header 
     # img = cv2.addWeighted(img, 0.5, imgCanvas, 0.5, 0)
     cv2.imshow("Image", img)
     cv2.imshow("Canvas", imgCanvas)
+    cv2.imshow("Inverse Image", imgInv)
     cv2.waitKey(1)
 
     # Break loop if 'q' key is pressed
