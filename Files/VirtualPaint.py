@@ -7,6 +7,7 @@ import HandTrackingModule as htm
 
 ##########
 brushThickness = 15
+eraserThickness = 40
 ##########
 
 # Load images from folder
@@ -75,9 +76,16 @@ while True:
             print("Drawing Mode")
             if xp == 0 and yp == 0: #Condition
                 xp, yp = x1, y1
+            
+            if drawColor == (0,0,0):
+                cv2.line(img, (xp, yp), (x1, y1), drawColor, eraserThickness)
+                cv2.line(imgCanvas, (xp, yp), (x1, y1), drawColor, eraserThickness)
+            else:
+                cv2.line(img, (xp, yp), (x1, y1), drawColor, brushThickness)
+                cv2.line(imgCanvas, (xp, yp), (x1, y1), drawColor, brushThickness)          
 
-            cv2.line(img, (xp, yp), (x1, y1), drawColor, brushThickness)
-            cv2.line(imgCanvas, (xp, yp), (x1, y1), drawColor, brushThickness)
+            # cv2.line(img, (xp, yp), (x1, y1), drawColor, brushThickness)
+            # cv2.line(imgCanvas, (xp, yp), (x1, y1), drawColor, brushThickness)
             xp, yp = x1, y1
 
     # Setting the header image
