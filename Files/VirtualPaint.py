@@ -1,9 +1,8 @@
-# Import necessary libraries
 import cv2
 import numpy as np
 import time
 import os
-import HandTrackingModule as htm   # Custom module for hand tracking
+import HandTrackingModule as htm  
 
 ########## CONFIGURATION ##########
 brushThickness = 15      # Thickness of the brush for drawing
