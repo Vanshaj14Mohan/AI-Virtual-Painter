@@ -3,7 +3,7 @@
 **WaveBrush** is a **real-time AI-powered virtual painting system** built with **OpenCV** and **MediaPipe**.
 It allows you to draw, erase, and switch colors on a digital canvas using **hand gestures only** — no mouse or touchscreen required.
 
-It reuses a modular `HandTrackingModule.py` for precise hand landmark detection and finger gesture recognition to make drawing smooth and intuitive.
+It uses a modular hand tracking approach for precise landmark detection and finger gesture recognition, making drawing smooth and intuitive.
 
 ---
 
