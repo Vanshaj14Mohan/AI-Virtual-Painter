@@ -22,8 +22,8 @@ for impath in myList:
 
 print("The length of images are:", len(overlayList))  # Debug: how many images loaded
 
-header = overlayList[0]         # Default header (first image)
-drawColor = (255, 0, 255)       # Default color: Purple (BGR format)
+header = overlayList[0]       # Default header (first image)
+drawColor = (255, 0, 255)     # Default color: Purple (BGR format)
 
 # Open webcam
 cap = cv2.VideoCapture(0)
