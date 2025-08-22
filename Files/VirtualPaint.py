@@ -43,7 +43,7 @@ while True:
     img = cv2.flip(img, 1)  # Flip horizontally for natural interaction
 
     # 2: Detect hands and landmarks
-    img = detector.findHands(img)                     # Draw landmarks on hand
+    img = detector.findHands(img)        # Draw landmarks on hand
     lmList = detector.findPosition(img, draw=False)   # Get landmark positions
 
     if len(lmList) != 0:   # If hand landmarks detected
@@ -80,7 +80,7 @@ while True:
 
         # 5: Drawing mode (only index finger up)
         if fingers[1] and fingers[2] == False:
-            cv2.circle(img, (x1, y1), 15, drawColor, cv2.FILLED)   # Show pointer
+            cv2.circle(img, (x1, y1), 15, drawColor, cv2.FILLED)  # Show pointer
             print("Drawing Mode")
 
             # First frame → just store starting point
